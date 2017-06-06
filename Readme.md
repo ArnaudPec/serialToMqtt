@@ -54,3 +54,10 @@ By default **./config.json** is used.
 Otherwise config file can be specified:
 
     python serialToMqtt.py my_config_file.json
+
+## Requirements:
+
+    json
+    pprint
+    serial
+    paho.mqtt.client
