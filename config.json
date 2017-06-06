@@ -1,0 +1,15 @@
+{
+    "Broker": {
+        "Host": "localhost",
+        "Port": 1883,
+        "ClientID": "clientID",
+        "TopicPrefix": "prefix",
+        "TopicSuffix": "suffix",
+        "qos": 0,
+        "cleansess": false
+    },
+    "Serial": {
+        "Port": "/dev/ttyACM1",
+        "Baudrate": 9600
+    }
+}
