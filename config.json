@@ -5,9 +5,7 @@
         "ClientID": "clientID",
         "Topic": "",
         "TopicPrefix": "prefix",
-        "TopicSuffix": "suffix",
-        "Qos": 0,
-        "cleansess": false
+        "TopicSuffix": "suffix"
     },
     "Serial": {
         "Port": "/dev/ttyACM1",
