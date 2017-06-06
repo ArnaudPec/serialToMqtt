@@ -17,16 +17,33 @@ Serial port and MQTT broker configuration is done by editing **config.json** fil
             "Host": "localhost",
             "Port": 1883,
             "ClientID": "clientID",
+            "Topic" : ""
             "TopicPrefix": "prefix",
             "TopicSuffix": "suffix",
-            "qos": 0,
-            "cleansess": false
+            "Qos": 0,
+            "Cleansess": false
         },
         "Serial": {
             "Port": "/dev/ttyACM1",
             "Baudrate": 9600
         }
     }
+
+## Serial data format and MQTT Topic selection
+
+The handler expect to read standard JSON data from the serial port:
+
+    {'lux': 305, 'temp': 24.17, 'press': 1021.24, 'id': 6001}
+
+MQTT Topic can be specified in the **config.json** file.
+It is possible to add prefixes and suffixes, *prefix/topic/suffix*.
+For example: **iot/MySensorId/out**
+
+If **Topic** is not specified in the configuration file, the handler
+will look for a JSON field *id* and used its value.
+
+    {'lux': 305, 'temp': 24.17, 'press': 1021.24, 'id': 6001}
+    Topic: 6001
 
 ## Launching the script
 

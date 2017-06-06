@@ -34,6 +34,17 @@ def config_serial(config_serial):
     s.port = config_serial['Port']
     s.baudrate = config_serial['Baudrate']
 
+def get_topic(config_mqtt, data):
+    if config_mqtt['Topic']:
+        return config_mqtt['TopicPrefix'] + "/" + config_mqtt['Topic'] \
+                + "/" + config_mqtt['TopicSuffix']
+    elif data['id']:
+        return config_mqtt['TopicPrefix'] + "/" + str(data['id']) \
+                + "/" + config_mqtt['TopicSuffix']
+    else:
+        print("A topic must be specified!")
+        sys.exit(1)
+
 def parse_config_file(argv):
     if len(argv) > 1:
         try:
@@ -88,10 +99,8 @@ if __name__ == "__main__":
             time.sleep(2)
 
             # Preparing MQTT topic and payload
-            topic = config['Broker']['TopicPrefix'] + "/" + str(data['id']) \
-                    + "/" + config['Broker']['TopicSuffix']
-
-            data.pop('id', None)
+            topic = get_topic(config['Broker'], data)
+            data.pop('id', None) # If data contains an "id", it is removed
             payload = json.dumps(data)
 
             # Publishing

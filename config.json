@@ -3,9 +3,10 @@
         "Host": "localhost",
         "Port": 1883,
         "ClientID": "clientID",
+        "Topic": "",
         "TopicPrefix": "prefix",
         "TopicSuffix": "suffix",
-        "qos": 0,
+        "Qos": 0,
         "cleansess": false
     },
     "Serial": {
