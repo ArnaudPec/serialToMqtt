@@ -3,7 +3,7 @@ File: serialToMqtt.py
 Description: Simple json serial to Mqtt data forwarder
 """
 
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 import time
